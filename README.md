@@ -156,6 +156,5 @@ The web service serves both API routes (`/api/*`) and the built frontend from on
 - Improve frontend UI and conversation history browsing
 - Add tests for routing and service behavior
 
-## License
+<img width="1919" height="961" alt="image" src="https://github.com/user-attachments/assets/b1fa462c-d68b-4e2d-b4a2-00fe77bf77b6" />
 
-This project is available for learning, experimentation, and further extension.
