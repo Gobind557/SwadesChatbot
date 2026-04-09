@@ -12,7 +12,6 @@ const app = new Hono();
 const currentDir = dirname(fileURLToPath(import.meta.url));
 const webDistPath = resolve(currentDir, "../../../web/dist");
 const indexFilePath = resolve(webDistPath, "index.html");
-const webDistRelativePath = "apps/web/dist";
 const hasWebBuild = existsSync(indexFilePath);
 
 // Middleware
@@ -29,7 +28,7 @@ if (hasWebBuild) {
   app.use(
     "*",
     serveStatic({
-      root: webDistRelativePath,
+      root: webDistPath,
     }),
   );
 
