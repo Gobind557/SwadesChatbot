@@ -29,6 +29,7 @@ if (hasWebBuild) {
     "*",
     serveStatic({
       root: webDistPath,
+      rewriteRequestPath: (path) => path.replace(/^\/+/, ""),
     }),
   );
 
