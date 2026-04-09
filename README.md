@@ -121,6 +121,26 @@ npm run dev
 - Frontend: `http://localhost:5173`
 - Backend: `http://localhost:3000`
 
+## Deploy on Render
+
+This repo now includes a `render.yaml` Blueprint at the root.
+
+1. Push this repository to GitHub.
+2. In Render, choose **New +** -> **Blueprint** and select this repo.
+3. Render will create:
+   - `swadeschatbot` (Node web service)
+   - `swadeschatbot-db` (PostgreSQL database)
+4. After first deploy, run DB setup against the Render `DATABASE_URL`:
+
+```bash
+cd packages/db
+npx drizzle-kit generate
+npx drizzle-kit migrate
+npx tsx seed.ts
+```
+
+The web service serves both API routes (`/api/*`) and the built frontend from one domain.
+
 ## Development Notes
 
 - `.env` is local-only and should not be committed
