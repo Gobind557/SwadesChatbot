@@ -4,9 +4,16 @@ import type { AppType } from "@customer-support/api";
 
 const client = hc<AppType>("/");
 
+type ChatResponse = {
+  response: string;
+  agent: string;
+  reasoning: string;
+  conversationId: number;
+};
+
 function App() {
   const [message, setMessage] = useState("");
-  const [response, setResponse] = useState<any>(null);
+  const [response, setResponse] = useState<ChatResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
   const sendMessage = async () => {
@@ -15,7 +22,7 @@ function App() {
       const res = await client.api.chat.messages.$post({
         json: { message },
       });
-      const data = await res.json();
+      const data = (await res.json()) as ChatResponse;
       setResponse(data);
     } catch (error) {
       console.error(error);
