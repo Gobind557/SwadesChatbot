@@ -1,0 +1,23 @@
+{
+  "name": "customer-support-monorepo",
+  "private": true,
+  "packageManager": "npm@11.6.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.10",
+    "turbo": "^2.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.1",
+    "drizzle-orm": "^0.45.2"
+  }
+}
